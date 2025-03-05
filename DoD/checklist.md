@@ -1,47 +1,47 @@
-<h2>Definition of Done</h2>
+## **Definition of Done**
 
-### Globaal
+### **General**
 
-- [ ] ESLint geeft geen fouten;
-- [ ] Code in het Engels; (eventueel Nederlands bij formele begrippen)
-- [ ] Code voorzien van commentaar, waar noodzakelijk.
-- [ ] Camelcasing, startend met een kleine letter. Geldt ook voor bestandsnamen. Alleen classes beginnen met een hoofdletter.
-- [ ] Errorhandling is toegepast op basis van error-helpers en de beschrijving hiervan op de wiki: [Try catch error handling](https://gitlab.com/teamlynn/tasker/wikis/Architectuur/Error-handling).
-- [ ] Er is **geen console.log aanwezig**, alleen de centrale [logging](https://gitlab.com/teamlynn/tasker/wikis/Architectuur/Logging).
-- [ ] Code is efficiënt: dubbele code is minimaal.
+- [ ] ESLint reports no errors;
+- [ ] Code is written in English (Dutch may be used for formal terms if necessary);
+- [ ] Code includes comments where necessary;
+- [ ] CamelCasing is used, starting with a lowercase letter. This applies to file names as well. Only classes start with an uppercase letter;
+- [ ] Error handling is implemented based on error helpers, as described in the wiki: [Try catch error handling](https://gitlab.com/teamlynn/tasker/wikis/Architectuur/Error-handling);
+- [ ] **No console.log statements** are present, only centralized [logging](https://gitlab.com/teamlynn/tasker/wikis/Architectuur/Logging);
+- [ ] Code is efficient: duplicate code is minimized.
 
-### Testen
+### **Testing**
 
-Zie de [Cypress best practises](https://docs.cypress.io/guides/references/best-practices) voor meer informatie over de onderstaande criteria en hoe je ze waarborgt.
+Refer to the [Cypress best practices](https://docs.cypress.io/guides/references/best-practices) for more information on the criteria below and how to ensure them.
 
-##### Algemeen
+#### **General**
 
-- [ ] Testen zijn geschreven volgens de [Cypress conventies](https://docs.cypress.io/guides/references/best-practices)
-- [ ] specs ([naam].cy.ts) zijn per pagina opgesteld en dekken alle functionaliteit van die pagina.
-- [ ] Testen zijn '[flake-free](https://www.jetbrains.com/teamcity/ci-cd-guide/concepts/flaky-tests/)' . Run de testen dus niet slechts 1x lokaal voor je het commit, maar meerdere malen.
-- [ ] Er is geen statische text getest(hardcoded text dat niet veranderd, zoals een titel van een dialoog), de testen beperken zich tot dynamische content.
-- [ ] Commands zijn alleen gemaakt voor herhalende code over meerdere specs. Als code alleen binnen één spec voorkomt, kan daar een normale functie voor komen.
-- [ ] Alle testen slagen in de pipeline.
-- [ ] Testperformance is optimaal. Geen onnodige [waits](https://docs.cypress.io/api/commands/wait) en (trage) UI-handelingen die programmatisch kunnen.
-- [ ] Handelingen worden alleen via de UI uitgevoerd wanneer de test die specifieke handeling test. Anders kan dit programmatisch.
-- [ ] Url's zijn getest op pathname en responsecode(dat de url correct is, betekent niet dat de pagina goed ingeladen is). Hier is een custom command voor.
-- [ ] Maak gebruik van [cy.context](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test%20Structure) om testen te categoriseren.
+- [ ] Tests are written according to [Cypress conventions](https://docs.cypress.io/guides/references/best-practices);
+- [ ] Specs (`[name].cy.ts`) are created per page and cover all functionality of that page;
+- [ ] Tests are '[flake-free](https://www.jetbrains.com/teamcity/ci-cd-guide/concepts/flaky-tests/)'. Do not run the tests only once locally before committing, but multiple times;
+- [ ] No static text is tested (hardcoded text that does not change, such as a dialog title); tests are limited to dynamic content;
+- [ ] Commands are only created for repetitive code across multiple specs. If code is only used within a single spec, a regular function can be used;
+- [ ] All tests pass in the pipeline;
+- [ ] Test performance is optimal. No unnecessary [waits](https://docs.cypress.io/api/commands/wait) or (slow) UI actions that can be done programmatically;
+- [ ] Actions are only performed via the UI when testing that specific action. Otherwise, they should be done programmatically;
+- [ ] URLs are tested for pathname and response code (a correct URL does not mean the page loaded properly). A custom command is available for this;
+- [ ] Use [cy.context](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test%20Structure) to categorize tests.
 
-##### Fixtures
+#### **Fixtures**
 
-- [ ] Bestaande fixtures zijn niet aangepast als ze in gebruik zijn door andere tests
-- [ ] Fixtures hebben beschrijvende namen, BV: projectWithStudentsAndCollaborators.
-- [ ] Na het aanmaken van nieuwe fixtures is de config aangevuld (config.ts & config.json)
+- [ ] Existing fixtures are not modified if they are used by other tests;
+- [ ] Fixtures have descriptive names, e.g., `projectWithStudentsAndCollaborators`;
+- [ ] After creating new fixtures, the config is updated (`config.ts` & `config.json`).
 
-##### Permissions
+#### **Permissions**
 
-- [ ] Elke functionaliteit wordt getest met alle relevante permissions. De permissions staan in _permissions.json_. Bijvoorbeeld CRUD functionaliteit wordt getest voor de eigenaar en collaborators met verschillende permissions.
+- [ ] Each functionality is tested with all relevant permissions. Permissions are listed in `_permissions.json_`. For example, CRUD functionality is tested for the owner and collaborators with different permissions.
 
-##### Data-cy
+#### **Data-cy**
 
-- [ ] Voor het aanspreken van html-elementen zijn enkel en alleen data-cy attributen gebruikt.
-- [ ] Data-cy attributen zijn in kebab-case en zonder hoofdletters.
-- [ ] Entiteit-specifieke parameters (zoals id of naam) zijn top-level toegevoegd(bijvoorbeeld aan een overkoepelende Div of een Tr).
-- [ ] Data-cy attributen met Entiteit-specifieke parameters zijn volgens dit format: [parameter]-[omschrijving(optioneel)] BV: "Reversi-row"
-- [ ] Child elementen hebben generieke namen, zoals: 'edit-project' of 'delete-episode'.
-- [ ] Query elementen alleen met data-cy, probeer het elementtype weg te laten, dus niet: ‘**a**[data-cy=”new-project”]’, maar: ‘[data-cy=”new-project”]’
+- [ ] Only `data-cy` attributes are used to target HTML elements;
+- [ ] `Data-cy` attributes use kebab-case and no capital letters;
+- [ ] Entity-specific parameters (such as ID or name) are added at the top level (e.g., to a wrapping `<div>` or `<tr>`);
+- [ ] `Data-cy` attributes with entity-specific parameters follow this format: `[parameter]-[description(optional)]`, e.g., `"reversi-row"`;
+- [ ] Child elements have generic names, such as `"edit-project"` or `"delete-episode"`;
+- [ ] Query elements only with `data-cy`, avoid including the element type, e.g., use `[data-cy="new-project"]` instead of `**a**[data-cy="new-project"]`.
