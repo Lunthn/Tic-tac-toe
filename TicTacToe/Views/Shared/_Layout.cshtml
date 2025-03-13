@@ -4,22 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] | Boter, Kaas en Eieren</title>
-    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     
-</head> 
+</head>
 <body>
+
     <header>
-        <a asp-controller="home" asp-action="index">
-            <h2>Boter, Kaas en Eieren</h2>
-        </a>
+        <div>
+            <a href="@Url.Action("Index", "Home")">
+                <h2>Boter, Kaas en Eieren</h2>
+            </a>
+        </div>
     </header>
-    <div class="container">
+
+    <div>
         <main role="main">
             @RenderBody()
         </main>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-   
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

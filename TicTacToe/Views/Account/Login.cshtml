@@ -1,21 +1,39 @@
-﻿@{
+﻿@model LoginModel
+
+@{
     ViewData["Title"] = "Inloggen";
 }
+<link rel="stylesheet" href="~/css/account.css" />
 
+<div class="wrapper">
 <h1>@ViewData["Title"]</h1>
 
-<form method="post">
+<form asp-controller="account" asp-action="login" method="post">
     <div>
-        <label for="Username">Gebruikersnaam</label>
-        <input type="text" id="Username" name="Username" />
+        <label asp-for="Username">Gebruikersnaam</label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
     </div>
-    <div>
-        <label for="Password">Wachtwoord</label>
-        <input type="password" id="Password" name="Password" />
-    </div>
-    <button type="submit">Inloggen</button>
-</form>
 
-<div>
-    <p>Heb je nog geen account? <a href="@Url.Action("register", "account")">Maak hier een account aan</a></p>
+    <div>
+        <label asp-for="Password">Wachtwoord</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+    {
+        <p>@error.ErrorMessage</p>
+    }
+
+    <div>
+        <a href="/" class="form-link">Wachtwoord vergeten?</a>
+    </div>
+
+
+    <div class="form-buttons">
+        <button type="submit">Inloggen</button>
+        <a asp-controller="account" asp-action="register" class="btn-secondary">Registreren</a>
+    </div>
+</form>
 </div>

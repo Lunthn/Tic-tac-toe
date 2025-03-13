@@ -1,0 +1,15 @@
+﻿form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-buttons{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.form-buttons button, .form-buttons .btn-secondary{
+    width: 100%
+}

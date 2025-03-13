@@ -1,0 +1,102 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --background: #FFFFFF;
+    --headline: #1f1235;
+    --sub-headline: #1b1425;
+    --card-background: #e2daeb;
+    --button: #ff6e6c;
+    --button-text: #1f1235;
+    --paragraph-color: #1b1425; 
+    --card-background-secondary: #301e4e;
+    --card-headline-secondary: #ffffff;
+    --card-paragraph-secondary: #f4f0fc;
+    --card-text-highlight-secondary: #ff6e6c; 
+    --card-tag-background-secondary: #4c346b;
+    --card-tag-text-secondary: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--paragraph-color); 
+    padding-inline: 15%;
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    padding-block: 20px;
+}
+
+header a  {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+h1 {
+    color: var(--headline); 
+    padding-bottom: 20px;
+}
+
+
+button, .btn, .btn-secondary {
+    background-color: var(--button);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid var(--button);
+}
+
+.btn-secondary {
+    background-color: transparent;
+}
+
+    button:hover, .btn:hover {
+        background-color: #e15554; 
+    }
+
+input {
+    background-color: var(--card-background);
+    border: none;
+    border-radius: 10px;
+    color: var(--paragraph-color);
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    font-weight: bold;
+}
+
+    input:focus {
+        border-color: var(--button);
+        outline: none;
+    }
+
+a {
+    color: var(--paragraph-color)
+}
+
+label {
+    color: var(--sub-headline);
+    font-weight: bold;
+}
+
+
+
