@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TicTacToe.Models;
 
@@ -7,19 +8,24 @@ namespace TicTacToe.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ApplicationDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
     {
-        return View();
-    }
+        if (!User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("login", "account");
+        }
 
-    public IActionResult Privacy()
-    {
+        var username = User.Identity.Name;
+        ViewBag.Username = username;
+
         return View();
     }
 

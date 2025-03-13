@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Inloggen";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label for="Username">Gebruikersnaam</label>
+        <input type="text" id="Username" name="Username" />
+    </div>
+    <div>
+        <label for="Password">Wachtwoord</label>
+        <input type="password" id="Password" name="Password" />
+    </div>
+    <button type="submit">Inloggen</button>
+</form>
+
+<div>
+    <p>Heb je nog geen account? <a href="@Url.Action("register", "account")">Maak hier een account aan</a></p>
+</div>
