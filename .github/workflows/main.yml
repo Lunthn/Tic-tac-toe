@@ -16,4 +16,4 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Create release
-        run: dotnet publish TicTacToe/TicTacToe.csproj -c Release -o publish
+        run: dotnet publish TicTacToe/TicTacToe.csproj -c Release -o publish/
