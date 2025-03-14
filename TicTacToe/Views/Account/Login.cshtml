@@ -12,26 +12,21 @@
     <div>
         <label asp-for="Username">Gebruikersnaam</label>
         <input asp-for="Username" />
-        <span asp-validation-for="Username"></span>
     </div>
 
     <div>
         <label asp-for="Password">Wachtwoord</label>
         <input asp-for="Password" type="password" />
-        <span asp-validation-for="Password"></span>
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+                <span asp-validation-for="Password" class="error-status">@error.ErrorMessage</span>
+        }
     </div>
-
-    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-    {
-        <p>@error.ErrorMessage</p>
-    }
-
     <div>
-        <a href="/" class="form-link">Wachtwoord vergeten?</a>
+        <a href="/">Wachtwoord vergeten?</a>
     </div>
 
-
-    <div class="form-buttons">
+    <div class="button-group">
         <button type="submit">Inloggen</button>
         <a asp-controller="account" asp-action="register" class="btn-secondary">Registreren</a>
     </div>

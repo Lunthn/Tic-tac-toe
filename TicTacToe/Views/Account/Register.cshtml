@@ -11,29 +11,29 @@
     <div>
         <label asp-for="Username">Gebruikersnaam</label>
         <input asp-for="Username" />
-        <span asp-validation-for="Username"></span>
+        <span asp-validation-for="Username" class="error-status"></span>
     </div>
 
     <div>
         <label asp-for="Password">Wachtwoord</label>
         <input asp-for="Password" type="password" />
-        <span asp-validation-for="Password"></span>
+        <span asp-validation-for="Password" class="error-status"></span>
     </div>
 
     <div>
         <label asp-for="ConfirmPassword">Bevestig wachtwoord</label>
         <input asp-for="ConfirmPassword" type="password" />
-        <span asp-validation-for="ConfirmPassword"></span>
+        <span asp-validation-for="ConfirmPassword" class="error-status"></span>
     </div>
 
     <div>
         <label asp-for="Email">E-mail</label>
         <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+        <span asp-validation-for="Email" class="error-status"></span>
     </div>
 
     
-        <a asp-controller="account" id="form-link" asp-action="login">Al een account? Inloggen</a>
+        <a asp-controller="account" asp-action="login">Al een account? Inloggen</a>
    
 
     <button type="submit">Registreren</button>

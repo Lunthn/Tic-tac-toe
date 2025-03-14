@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Account";
+}
+
+<link rel="stylesheet" href="~/css/account.css" />
+<div class="wrapper">
+    <div class="section">
+        <p>Username: @ViewBag.Username</p>
+        <p>Rol: @ViewBag.Role </p>
+        <p>E-mail: @ViewBag.Email</p>
+        <a asp-controller="account" asp-action="logout" class="btn">Uitloggen</a>
+    </div>
+</div>

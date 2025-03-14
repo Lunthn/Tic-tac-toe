@@ -1,10 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Lobby's";
 }
-
+<link rel="stylesheet" href="~/css/home.css" />
 
 
 <div class="wrapper">
-    <h1>Welkom, @ViewBag.Username</h1>
-    <a asp-controller="account" asp-action="logout">Uitloggen</a>
+    <h1>Hallo, @ViewBag.Username</h1>
+    <div class="button-group">
+        <button class="btn">Lobby aanmaken</button>
+        <button class="btn-secondary">Lobby joinen</button>
+    </div>
 </div>

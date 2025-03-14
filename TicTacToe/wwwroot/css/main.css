@@ -5,12 +5,13 @@
     --sub-headline: #1b1425;
     --card-background: #e2daeb;
     --button: #ff6e6c;
+    --button-hover: #e15554;
     --button-text: #1f1235;
-    --paragraph-color: #1b1425; 
+    --paragraph-color: #1b1425;
     --card-background-secondary: #301e4e;
     --card-headline-secondary: #ffffff;
     --card-paragraph-secondary: #f4f0fc;
-    --card-text-highlight-secondary: #ff6e6c; 
+    --card-text-highlight-secondary: #ff6e6c;
     --card-tag-background-secondary: #4c346b;
     --card-tag-text-secondary: #FFFFFF;
 }
@@ -39,6 +40,7 @@ header{
     padding-block: 20px;
 }
 
+
 header a  {
     -webkit-text-decoration: none;
     text-decoration: none;
@@ -62,15 +64,31 @@ button, .btn, .btn-secondary {
     -webkit-text-decoration: none;
     text-decoration: none;
     text-align: center;
-    border: 2px solid var(--button);
+    border: 2px solid var(--button); 
 }
 
 .btn-secondary {
     background-color: transparent;
 }
 
-    button:hover, .btn:hover {
-        background-color: #e15554; 
+button:hover, .btn:hover {
+    background-color: var(--button-hover);
+    border: 2px solid var(--button-hover);
+}
+
+.btn-secondary:hover {
+    background-color: var(--card-background);
+    border: 2px solid var(--card-background);
+}
+
+.button-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+    .button-group button, .button-group .btn-secondary, button-group .btn {
+        width: 100%
     }
 
 input {
@@ -81,7 +99,6 @@ input {
     padding: 10px;
     font-size: 16px;
     width: 100%;
-    font-weight: bold;
 }
 
     input:focus {
@@ -96,6 +113,17 @@ a {
 label {
     color: var(--sub-headline);
     font-weight: bold;
+}
+
+.error-status {
+    color: red;
+    font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding-inline: 20px;
+    }
 }
 
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TicTacToe.Services;
 
 namespace TicTacToe
 {
@@ -6,7 +7,8 @@ namespace TicTacToe
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
-        { }
+        {
+        }
 
         public DbSet<User> Users { get; set; }
     }

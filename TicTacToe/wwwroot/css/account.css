@@ -4,12 +4,13 @@
     gap: 10px;
 }
 
-.form-buttons{
+
+.section {
     display: flex;
-    width: 100%;
+    flex-direction: column;
     gap: 10px;
 }
 
-.form-buttons button, .form-buttons .btn-secondary{
-    width: 100%
+.section h1{
+    padding: 0;
 }

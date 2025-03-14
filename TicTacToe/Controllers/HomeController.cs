@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TicTacToe.Models;
@@ -22,10 +23,9 @@ public class HomeController : Controller
         {
             return RedirectToAction("login", "account");
         }
-
-        var username = User.Identity.Name;
-        ViewBag.Username = username;
-
+        ViewBag.Username = User.FindFirst(ClaimTypes.Name).Value;
+        ViewBag.Role = User.FindFirst(ClaimTypes.Role).Value;
+        ViewBag.Email = User.FindFirst(ClaimTypes.Email).Value;
         return View();
     }
 

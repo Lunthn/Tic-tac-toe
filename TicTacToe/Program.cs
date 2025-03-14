@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using TicTacToe.Services;
 
 namespace TicTacToe
@@ -36,10 +37,15 @@ namespace TicTacToe
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                DbSeeder.SeedAdmin(services);
+            }
 
             app.MapControllerRoute(
                 name: "default",
